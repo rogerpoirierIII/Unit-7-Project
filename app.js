@@ -126,9 +126,6 @@ trafficNav[i].addEventListener('click', e => {
 
 })
 }
-
-
-
 const dailyCanvas = document.getElementById("daily-chart");
 
 const dailyData = {
@@ -238,6 +235,10 @@ saveBtn.addEventListener('click',()=>{
     save();
 })
 cancelBtn.addEventListener('click',()=>{
-    location.reload()
+    for (let i = 0; i < toggle.length; i++) {
+         localStorage.removeItem("checkbox"+[i+1]);
+    }
+    localStorage.removeItem('timezone')
+    location.reload();
 })
 document.addEventListener('load',load());
